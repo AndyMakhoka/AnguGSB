@@ -5,7 +5,8 @@
 import * as http from "http";
 
 export const environment = {
-  production: false, ENDPOINT : "http://localhost/"
+  production: false, ENDPOINT : "http://localhost/makhoka/ProjetWSGsb/public/"
+  //"http://localhost/makhoka/ProjetWSGsb/public/api/frais/..."
 };
 
 /*

@@ -1,4 +1,4 @@
-import { Frais } from './Frais';
+import { Frais } from './frais';
 
 describe('Fichefrais', () => {
   it('should create an instance', () => {
