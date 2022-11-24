@@ -40,7 +40,7 @@ export class ListefichefraisComponent implements OnInit {
     let item = '1';
     this.id = Number.parseInt(item);
     this._titre = "Liste des frais du visiteur " + this.id;
-    this.getFicheFraisListe(this.id);
+    this.getFicheFraisListe(1);
   }
 
 

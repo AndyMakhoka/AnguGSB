@@ -5,6 +5,10 @@ import { NavabarComponent } from './navabar/navabar.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 
+import {HttpClient} from "@angular/common/http";
+import {HttpHeaders} from "@angular/common/http";
+import {HttpHandler} from "@angular/common/http";
+
 import { AppComponent } from './app.component';
 import { ListefichefraisComponent } from './listefichefrais/listefichefrais.component';
 import { FichefraisComponent } from './fichefrais/fichefrais.component';
@@ -19,9 +23,10 @@ import {FichefraisService} from "./FichefraisService/fichefrais.service";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [FichefraisService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

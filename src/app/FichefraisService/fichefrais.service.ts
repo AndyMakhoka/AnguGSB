@@ -16,14 +16,16 @@ export class FichefraisService {
   //unFrais: Frais;
 
   constructor(private httpClient: HttpClient) {
+    /*
     let httpHeaders = new HttpHeaders({
       'content-type': 'application/json',
       'Cache-Control': 'no-cache'
     })
+     */
   }
 
   getFicheFraisListe(id: number): Observable<any> {
-    this.ClientUrl = environment.ENDPOINT + 'api/frais/ListeFrais/' + id;
+    this.ClientUrl = environment.ENDPOINT + 'api/frais/listeFrais/' + id;
     return this.httpClient.get(this.ClientUrl);
   }
 
