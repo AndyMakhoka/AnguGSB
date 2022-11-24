@@ -7,11 +7,11 @@ import {NavabarComponent} from "./navabar/navabar.component";
 const routes: Routes = [
   { path: '', redirectTo : '/connexion', pathMatch: 'full' },
   { path: 'connexion', component: ListefichefraisComponent },
-  {path: 'Listefichefrais', component: ListefichefraisComponent },
+  { path: 'Listefichefrais', component: ListefichefraisComponent },
   //{path: 'modifierFrais/:id', component: ListefichefraisComponent },
  // {path: 'ajouterFrais/:id', component: Frais },
   //{path: 'ajouterFrais', component: AjouterfichefraisComponent }
-  {path: 'accueil', component: NavabarComponent }
+  { path: 'accueil', component: NavabarComponent }
 ];
 
 @NgModule({

@@ -13,12 +13,19 @@ import {compareNumbers} from "@angular/compiler-cli/src/version_helpers";
   styleUrls: ['./listefichefrais.component.css']
 })
 export class ListefichefraisComponent implements OnInit {
+  get titre(): string {
+    return this._titre;
+  }
+
+  set titre(value: string) {
+    this._titre = value;
+  }
 
   //public mesFrais: Frais = [];
   public mesFrais = [];
   private error: string = "";
   private id: number = 1;
-  private titre: string = "";
+  private _titre: string = "";
   private unFrais: Frais = new Frais();
 
   constructor( private unFS: FichefraisService, private unRouteur: Router) {
@@ -29,20 +36,25 @@ export class ListefichefraisComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let item = localStorage.getItem('id');
+    //let item = localStorage.getItem('id');
+    let item = '1';
     this.id = Number.parseInt(item);
-    this.titre = "Liste des frais du visiteur " + this.id;
+    this._titre = "Liste des frais du visiteur " + this.id;
     this.getFicheFraisListe(this.id);
   }
 
 
-
-  getFicheFraisListe(id: number) void {
+  getFicheFraisListe(id: number) : void {
   this.unFS.getFicheFraisListe(id).subscribe(
-(fichefrais) => {
-  this.mesfrais
+    (fichefrais) => {
+      this.mesFrais = fichefrais;
+      },
+    (error) => {
+      this.error = error.messages;
 }
-)
+  )
+
 }
+
 
 }

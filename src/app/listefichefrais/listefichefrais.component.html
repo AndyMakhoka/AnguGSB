@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navabar></app-navabar>
 <BR> <BR> <BR>
 <div>
   <h1>
@@ -25,20 +25,20 @@
 
       </thead>
       <tr *ngFor="let unFrais of mesFrais">
-        <td>{{unFrais.id_frais}}</td>
-        <td>{{unFrais.anneemois}}</td>
-        <td>{{unFrais.datemodification}}</td>
-        <td>{{unFrais.montantvalide}}</td>
-        <td>{{unFrais.nbjustificatifs}}</td>
-        <td>{{unFrais.id_visiteur}}</td>
-        <td>{{unFrais.lib_etat}}</td>
+        <td>{{unFrais['id_frais]}}</td>
+        <td>{{unFrais['anneemois']}}</td>
+        <td>{{unFrais['datemodification']}}</td>
+        <td>{{unFrais['montantvalide']}}</td>
+        <td>{{unFrais['nbjustificatifs']}}</td>
+        <td>{{unFrais['id_visiteur']}}</td>
+        <td>{{unFrais['lib_etat']}}</td>
 
 
-        <td><button class="btn btn-primary" (click)="modifier(unFrais.id_frais)">
+        <td><button class="btn btn-primary">
           <span class="glyphicon glyphicon-pencil"></span> Modifier </button></td>
         <td>
           <button
-            class="btn btn-primary" (click)="supprimer((unFrais.id_frais))"
+            class="btn btn-primary"
             onclick="javascript: if (confirm('Suppression confirmée ?')) {  }" >
             <span class="glyphicon glyphicon-remove"></span> Supprimer
           </button>
