@@ -84,6 +84,11 @@ export class FichefraisComponent implements OnInit {
   }
 
 
+  annuler(id: number): void{
+    this.unRouteur.navigate(['/accueil/']);
+  }
+
+
 
 }
 

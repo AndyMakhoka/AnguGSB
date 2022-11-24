@@ -64,4 +64,6 @@ export class ListefichefraisComponent implements OnInit {
   supprimer(id: number): void{
     this.unRouteur.navigate(['/suprimer/' + id]);
   }
+
+
 }
