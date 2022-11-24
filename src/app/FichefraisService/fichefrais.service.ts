@@ -3,21 +3,19 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Frais} from "../../metier/frais";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class FichefraisService {
 
   private headers = new Headers({'content-type': 'application/json'});
-
   private ClientUrl = "";
   //ClientUrl: string;
 
   private unFrais = new Frais();
   //unFrais: Frais;
 
-  constructor( private _headers:Headers, private httpClient: HttpClient, private _unFrais: Frais) {
-    this.headers = _headers;
-    this.unFrais = _unFrais;
+  constructor(private httpClient: HttpClient) {
     let httpHeaders = new HttpHeaders({
       'content-type': 'application/json',
       'Cache-Control': 'no-cache'
