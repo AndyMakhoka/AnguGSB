@@ -57,4 +57,11 @@ export class ListefichefraisComponent implements OnInit {
 }
 
 
+  modifier(id: number): void{
+    this.unRouteur.navigate(['/modifierFrais/' + id]);
+  }
+
+  supprimer(id: number): void{
+    this.unRouteur.navigate(['/suprimer/' + id]);
+  }
 }

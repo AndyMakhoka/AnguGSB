@@ -11,22 +11,27 @@ import {HttpHandler} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { ListefichefraisComponent } from './listefichefrais/listefichefrais.component';
-import { FichefraisComponent } from './fichefrais/fichefrais.component';
+//import { FichefraisComponent } from './fichefrais/fichefrais.component';
+import {FichefraisComponent} from "./fichefrais/fichefrais.component";
 import {FichefraisService} from "./FichefraisService/fichefrais.service";
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ListefichefraisComponent,
     NavabarComponent,
-    FichefraisComponent
+    FichefraisComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
-  providers: [FichefraisService, HttpClient],
+  providers: [FichefraisService, HttpClient, FormsModule,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
