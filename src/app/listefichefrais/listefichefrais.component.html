@@ -26,17 +26,17 @@
 
       </thead>
       <tr *ngFor="let unFrais of mesFrais">
-        <td>{{unFrais['id_frais']}}</td>
-        <td>{{unFrais['anneemois']}}</td>
-        <td>{{unFrais['datemodification']}}</td>
-        <td>{{unFrais['montantvalide']}}</td>
-        <td>{{unFrais['nbjustificatifs']}}</td>
-        <td>{{unFrais['id_visiteur']}}</td>
-        <td>{{unFrais['lib_etat']}}</td>
+        <td>{{unFrais.id_frais}}</td>
+        <td>{{unFrais.anneemois}}</td>
+        <td>{{unFrais.datemodification}}</td>
+        <td>{{unFrais.montantvalide}}</td>
+        <td>{{unFrais.nbjustificatifs}}</td>
+        <td>{{unFrais.id_frais}}</td>
+        <td>{{unFrais.lib_etat}}</td>
 
 
-        <td><button class="btn btn-primary">
-          <span class="glyphicon glyphicon-pencil" (click)="modifier(unFrais['id_frais'])"></span> Modifier </button></td>
+        <td><button class="btn btn-primary" (click)="modifier(unFrais.id_frais)">
+          <span class="glyphicon glyphicon-pencil"></span> Modifier </button></td>
         <td>
           <button
             class="btn btn-primary" (click)="supprimer(unFrais['id_frais'])"

@@ -22,7 +22,7 @@ export class ListefichefraisComponent implements OnInit {
   }
 
   //public mesFrais: Frais = [];
-  public mesFrais = [];
+  public mesFrais!: Frais[];
   private error: string = "";
   private id: number = 1;
   private _titre: string = "";
@@ -30,7 +30,7 @@ export class ListefichefraisComponent implements OnInit {
 
   constructor( private unFS: FichefraisService, private unRouteur: Router) {
     let httpFeaders = new HttpHeaders({
-      'Content-type' : 'application/json',
+      'Content-Type' : 'application/json',
       'Cache-Control' : 'no-cache'
     })
   }
@@ -51,7 +51,7 @@ export class ListefichefraisComponent implements OnInit {
       },
     (error) => {
       this.error = error.messages;
-}
+    }
   )
 
 }

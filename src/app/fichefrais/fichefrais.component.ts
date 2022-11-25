@@ -20,7 +20,7 @@ export class FichefraisComponent implements OnInit {
   public unFrais: Frais = new Frais;
   //private unFS: FichefraisService = new FichefraisService();
   private  fraisId: number = 0;
-  private titre: string = "Modification d'un frais";
+  public titre: string = "Modification d'un frais";
   private paramMap!: ParamMap;
   private error: string = '';
 
@@ -54,6 +54,7 @@ export class FichefraisComponent implements OnInit {
   modifier(id: number): void{
     this.unRouteur.navigate(['/modifierFrais/' + id]);
   }
+
   supprimer(id: number): void{
     this.unRouteur.navigate(['/suprimer/' + id]);
   }

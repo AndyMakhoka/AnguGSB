@@ -4,6 +4,7 @@ import {ListefichefraisComponent} from "./listefichefrais/listefichefrais.compon
 import {Frais} from "../metier/frais";
 import {NavabarComponent} from "./navabar/navabar.component";
 import {FichefraisComponent} from "./fichefrais/fichefrais.component";
+import * as path from "path";
 
 const routes: Routes = [
   { path: '', redirectTo : '/connexion', pathMatch: 'full' },
