@@ -5,10 +5,11 @@ import {Frais} from "../metier/frais";
 import {NavabarComponent} from "./navabar/navabar.component";
 import {FichefraisComponent} from "./fichefrais/fichefrais.component";
 import * as path from "path";
+import {ConnexionComponent} from "./connexion/connexion.component";
 
 const routes: Routes = [
   { path: '', redirectTo : '/connexion', pathMatch: 'full' },
-  { path: 'connexion', component: ListefichefraisComponent },
+  { path: 'connexion', component: ConnexionComponent },
   { path: 'Listefichefrais', component: ListefichefraisComponent },
   {path: 'modifierFrais/:id', component: FichefraisComponent },
   //{path: 'ajouterFrais/:id', component: Frais },

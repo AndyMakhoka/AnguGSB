@@ -15,6 +15,7 @@ import { ListefichefraisComponent } from './listefichefrais/listefichefrais.comp
 import {FichefraisComponent} from "./fichefrais/fichefrais.component";
 import {FichefraisService} from "./FichefraisService/fichefrais.service";
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ListefichefraisComponent,
     NavabarComponent,
     FichefraisComponent,
+    ConnexionComponent,
   ],
   imports: [
     BrowserModule,
