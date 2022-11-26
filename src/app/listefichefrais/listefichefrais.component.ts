@@ -24,7 +24,7 @@ export class ListefichefraisComponent implements OnInit {
   //public mesFrais: Frais = [];
   public mesFrais!: Frais[];
   private error: string = "";
-  private id: number = 1;
+  private id: number = 0;
   private _titre: string = "";
   private unFrais: Frais = new Frais();
 
@@ -36,11 +36,13 @@ export class ListefichefraisComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //let item = localStorage.getItem('id');
-    let item = '1';
-    this.id = Number.parseInt(item);
-    this._titre = "Liste des frais du visiteur " + this.id;
-    this.getFicheFraisListe(1);
+    let item = localStorage.getItem('id');
+    if (item) {
+      this.id = Number.parseInt(item);
+      this._titre = "Liste des frais du visiteur " + this.id;
+
+      this.getFicheFraisListe(Number.parseInt(item));
+    }
   }
 
 

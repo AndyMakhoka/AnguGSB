@@ -3,6 +3,8 @@ import {Visiteur} from "../../metier/visiteur";
 import {VisiteurService} from "../VisiteurService/visiteur.service";
 import {Router} from "@angular/router";
 import {HttpHeaders} from "@angular/common/http";
+import {NavabarComponent} from "../navabar/navabar.component";
+import {GlobalComponentComponent} from "../global/global-component.component.";
 
 @Component({
   selector: 'app-connexion',
@@ -20,6 +22,7 @@ export class ConnexionComponent implements OnInit {
   public estCache : boolean = true;
   public unVisiteur! : Visiteur;
   private error : string = '';
+  private navabarComponent! :NavabarComponent;
 
 
   constructor(private unVS: VisiteurService, private router: Router) {
@@ -30,6 +33,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   valider() : void {
@@ -38,7 +42,7 @@ export class ConnexionComponent implements OnInit {
     this.unVisiteur.login_visiteur = this.userLogin;
     this.unVisiteur.pwd_visiteur = this.userMdp;
     this.unVisiteur.id_visiteur = 0;
-
+    localStorage.setItem('id', (this.unVisiteur.id_visiteur).toString());
     this.unVS.getLogin(this.unVisiteur).subscribe(
       (visiteur) => {
         this.unVisiteur = visiteur;

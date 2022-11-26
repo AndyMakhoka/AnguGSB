@@ -22,7 +22,7 @@
       "es2020",
       "dom"
     ],
-    /*Ajouté par moi*/"allowSyntheticDefaultImports": true
+    ///*Ajouté par moi*/"allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

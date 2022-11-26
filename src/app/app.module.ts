@@ -16,6 +16,7 @@ import {FichefraisComponent} from "./fichefrais/fichefrais.component";
 import {FichefraisService} from "./FichefraisService/fichefrais.service";
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConnexionComponent } from './connexion/connexion.component';
+import {GlobalComponentComponent} from "./global/global-component.component.";
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
     NavabarComponent,
     FichefraisComponent,
     ConnexionComponent,
+    GlobalComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [FichefraisService, HttpClient, FormsModule,],
+  providers: [FichefraisService, HttpClient, FormsModule, GlobalComponentComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
