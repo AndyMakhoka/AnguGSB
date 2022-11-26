@@ -18,7 +18,7 @@ export class FichefraisService {
   constructor(private httpClient: HttpClient) {
 
     let httpHeaders = new HttpHeaders({
-      'content-Type': 'application/json',
+      'Content-Type': 'application/json',
       'Cache-Control': 'no-cache'
     })
 
