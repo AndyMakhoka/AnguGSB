@@ -64,9 +64,9 @@ export class ListefichefraisComponent implements OnInit {
   }
 
 
-  supprimer(id: number): void{
+  supprimer(unFrais: Frais): void{
     //this.unRouteur.navigate(['/supprimer/' + id]);
-    this.unFS.deleteFrais(id).subscribe(
+    this.unFS.deleteFrais(unFrais).subscribe(
       () => {
 
       },

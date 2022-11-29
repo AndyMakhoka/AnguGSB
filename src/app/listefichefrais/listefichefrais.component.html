@@ -30,7 +30,7 @@
         <td>{{unFrais.datemodification}}</td>
         <td>{{unFrais.montantvalide}}</td>
         <td>{{unFrais.nbjustificatifs}}</td>
-        <td>{{unFrais.id_frais}}</td>
+        <td>{{unFrais.id_visiteur}}</td>
         <td>{{unFrais.lib_etat}}</td>
 
 
@@ -38,8 +38,7 @@
           <span class="glyphicon glyphicon-pencil"></span> Modifier </button></td>
         <td>
           <button
-            class="btn btn-primary" (click)="supprimer(unFrais.id_frais)"
-            onclick="javascript: if (confirm('Suppression confirmée ?')) {  }" >
+            class="btn btn-primary" (click)="supprimer(unFrais)">
             <span class="glyphicon glyphicon-remove"></span> Supprimer
           </button>
         </td>
