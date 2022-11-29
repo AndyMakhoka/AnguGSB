@@ -20,7 +20,7 @@ export class ConnexionComponent implements OnInit {
   public lblLogin : string = 'login :';
   public lblMessage! : string;
   public estCache : boolean = true;
-  public unVisiteur! : Visiteur;
+  public unVisiteur !: Visiteur;
   private error : string = '';
   private navabarComponent! :NavabarComponent;
 

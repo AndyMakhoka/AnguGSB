@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {Etat} from "../../metier/etat";
 import {EtatService} from "../EtatService/etat.service";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 
 @Component({
@@ -43,10 +44,12 @@ export class FichefraisComponent implements OnInit {
     if (this.activatedRoute.snapshot.paramMap.get('id')){
       // @ts-ignore
       this.fraisId = +this.activatedRoute.snapshot.paramMap.get('id');
-      this.unFS.getFicheFrais(this.fraisId);
+      this.getFicheFrais(this.fraisId);
+      this.getEtat();
     }
-    this.getFicheFrais(1);
-    this.getEtat();
+
+
+
 
 
   }
@@ -55,16 +58,14 @@ export class FichefraisComponent implements OnInit {
     this.unRouteur.navigate(['/modifierFrais/' + id]);
   }
 
-  supprimer(id: number): void{
-    this.unRouteur.navigate(['/suprimer/' + id]);
-  }
+
 
 
 
   getFicheFrais(id: number) : void {
-    this.unFS.getFicheFraisListe(id).subscribe(
-      (fichefrais) => {
-        this.unFrais = fichefrais;
+    this.unFS.getFicheFrais(id).subscribe(
+      (unFrais) => {
+        this.unFrais = unFrais;
       },
       (error) => {
         this.error = error.messages;
@@ -85,10 +86,28 @@ export class FichefraisComponent implements OnInit {
   }
 
 
-  annuler(id: number): void{
+  annuler(): void {
     this.unRouteur.navigate(['/accueil/']);
   }
 
+  valider() : void {
+    this.unFS.updateFrais(this.unFrais).subscribe(
+      ()=> {;
+      },
+      (error) => {
+        this.error = error.messages;
+      }
+    );
+
+    if (this.error != '')
+      alert("Erreur survenue " + this.error);
+    else
+      alert("Modifiaction réussie !");
+    this.unRouteur.navigate(['/Listefichefrais']);
+  }
+  fraishorsforfait() : void {
+   // this.unRouteur.navigate(['/accueil']);
+  }
 
 
 }
