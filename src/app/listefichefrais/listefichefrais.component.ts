@@ -68,12 +68,14 @@ export class ListefichefraisComponent implements OnInit {
     //this.unRouteur.navigate(['/supprimer/' + id]);
     this.unFS.deleteFrais(unFrais).subscribe(
       () => {
-
+        //this.unRouteur.navigate(['/Listefichefrais']);
       },
       (error) => {
         this.error = error.messages;
+        //this.unRouteur.navigate(['/Listefichefrais']);
       }
     )
+    //this.unRouteur.navigateByUrl("/reload");
   }
 
 
