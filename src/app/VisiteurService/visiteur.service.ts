@@ -22,4 +22,10 @@ export class VisiteurService {
     this.ClientUrl = environment.ENDPOINT + 'api/getConnexion';
     return this.httpClient.post(this.ClientUrl, JSON.stringify(unV));
 }
+
+  getLogout(unV: Visiteur): Observable<any> {
+    this.ClientUrl = environment.ENDPOINT + 'api/getConnexion';
+    return this.httpClient.post(this.ClientUrl, JSON.stringify(unV));
+  }
+
 }

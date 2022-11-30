@@ -1,38 +1,89 @@
 <BR><BR><BR>
-<form class="col-lg-6" name="frmLogin" (ngSubmit)="valider()" >
+<ng-container *ngIf="id_visiteur == 0">
+  <form class="col-lg-6" name="frmLogin" (ngSubmit)="valider()" >
     <div>
-        <h1>
-           {{ titre}}
+      <h1>
+        {{ titre}}
 
-          </h1>
-          <div class="panel panel-info col-md-10 col-sm-10 col-md-offset-1">
+      </h1>
+      <div class="panel panel-info col-md-10 col-sm-10 col-md-offset-1">
 
 
-              <div style="padding-top: 30px;" class="col-md-10 panel-body">
-                  <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12">
-                  </div>
-                  <div style="margin-bottom:2%;" class="col-md-5 col-md-offset-5 input-group">
-                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                      <input type="text" name="lg" class="form-control"  [(ngModel)]="userLogin" placeholder= "{{lblLogin}}" required autofocus>
-                  </div>
-                  <div style="margin-bottom:2%;" class="col-md-5 col-md-offset-5 input-group">
-                      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                      <input type="password" name="mp" ng-model="pwd" class="form-control"  [(ngModel)]="userMdp" placeholder="{{lblmdp}}" required>
-                  </div>
-
-                  <div [hidden]="estCache" class="alert alert-danger" role="alert" > {{lblMessage}}
-                </div>
-
-                  <div class="form-group">
-                      <div class="col-md-6 col-md-offset-6">
-                          <button type="submit" class="btn btn-default btn-primary" (click)="valider()">
-                              <span class="glyphicon glyphicon-log-in"></span> Valider
-                          </button>
-                      </div>
-                  </div>
-
-              </div>
+        <div style="padding-top: 30px;" class="col-md-10 panel-body">
+          <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12">
           </div>
-      </div>
+          <div style="margin-bottom:2%;" class="col-md-5 col-md-offset-5 input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" name="lg" class="form-control"  [(ngModel)]="userLogin" placeholder= "{{lblLogin}}" required autofocus>
+          </div>
+          <div style="margin-bottom:2%;" class="col-md-5 col-md-offset-5 input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" name="mp" ng-model="pwd" class="form-control"  [(ngModel)]="userMdp" placeholder="{{lblmdp}}" required>
+          </div>
 
-</form>
+          <div [hidden]="estCache" class="alert alert-danger" role="alert" > {{lblMessage}}
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-6 col-md-offset-6">
+              <button type="submit" class="btn btn-default btn-primary" (click)="valider()">
+                <span class="glyphicon glyphicon-log-in"></span> Valider
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+</ng-container>
+<ng-container *ngIf="id_visiteur > 0">
+
+  <h1>
+    Vous etes déja connecté
+
+  </h1>
+
+  <form class="col-lg-6" name="frmLogin" (ngSubmit)="valider()" >
+    <div>
+      <br><br>
+      <h3>
+        Se connecter en tant qu'autre client
+
+      </h3>
+      <div class="panel panel-info col-md-10 col-sm-10 col-md-offset-1">
+
+
+        <div style="padding-top: 30px;" class="col-md-10 panel-body">
+          <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12">
+          </div>
+          <div style="margin-bottom:2%;" class="col-md-5 col-md-offset-5 input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" name="lg" class="form-control"  [(ngModel)]="userLogin" placeholder= "{{lblLogin}}" required autofocus>
+          </div>
+          <div style="margin-bottom:2%;" class="col-md-5 col-md-offset-5 input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" name="mp" ng-model="pwd" class="form-control"  [(ngModel)]="userMdp" placeholder="{{lblmdp}}" required>
+          </div>
+
+          <div [hidden]="estCache" class="alert alert-danger" role="alert" > {{lblMessage}}
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-6 col-md-offset-6">
+              <button type="submit" class="btn btn-default btn-primary" (click)="valider()">
+                <span class="glyphicon glyphicon-log-in"></span> Valider
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+
+</ng-container>

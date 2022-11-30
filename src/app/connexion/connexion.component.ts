@@ -23,6 +23,7 @@ export class ConnexionComponent implements OnInit {
   public unVisiteur !: Visiteur;
   private error : string = '';
   private navabarComponent! :NavabarComponent;
+  public id_visiteur : number = 0;
 
 
   constructor(private unVS: VisiteurService, private router: Router) {
@@ -33,7 +34,10 @@ export class ConnexionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    let item = localStorage.getItem('id');
+    if (item) {
+      this.id_visiteur = Number.parseInt(item);
+    }
   }
 
   valider() : void {
