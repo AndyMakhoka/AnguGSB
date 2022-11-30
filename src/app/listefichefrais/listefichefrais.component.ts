@@ -72,9 +72,12 @@ export class ListefichefraisComponent implements OnInit {
       },
       (error) => {
         this.error = error.messages;
-        //this.unRouteur.navigate(['/Listefichefrais']);
+
       }
-    )
+    );
+    alert("Suppression réussie !");
+    this.unRouteur.navigate(['/accueil']);
+    this.unRouteur.navigate(['/Listefichefrais']);
     //this.unRouteur.navigateByUrl("/reload");
   }
 
