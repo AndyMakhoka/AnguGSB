@@ -17,6 +17,7 @@ import {FichefraisService} from "./FichefraisService/fichefrais.service";
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConnexionComponent } from './connexion/connexion.component';
 import {GlobalComponentComponent} from "./global/global-component.component.";
+import { AjoutFicheFraisComponent } from './ajout-fiche-frais/ajout-fiche-frais.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {GlobalComponentComponent} from "./global/global-component.component.";
     FichefraisComponent,
     ConnexionComponent,
     GlobalComponentComponent,
+    AjoutFicheFraisComponent,
   ],
   imports: [
     BrowserModule,
