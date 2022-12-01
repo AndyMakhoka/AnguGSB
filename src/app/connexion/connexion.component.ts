@@ -46,6 +46,7 @@ export class ConnexionComponent implements OnInit {
     this.unVisiteur.login_visiteur = this.userLogin;
     this.unVisiteur.pwd_visiteur = this.userMdp;
     this.unVisiteur.id_visiteur = 0;
+
     localStorage.setItem('id', (this.unVisiteur.id_visiteur).toString());
     this.unVS.getLogin(this.unVisiteur).subscribe(
       (visiteur) => {
@@ -61,6 +62,7 @@ export class ConnexionComponent implements OnInit {
 
     (error) => {
       this.error = error.messages;
+      alert(error.messages);
     });
 
   }
