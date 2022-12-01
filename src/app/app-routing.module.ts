@@ -16,7 +16,9 @@ const routes: Routes = [
   //{path: 'ajouterFrais/:id', component: Frais },
   //{path: 'ajouterFrais', component: AjouterfichefraisComponent },
   { path: 'accueil', component: NavabarComponent },
-  { path: 'ajouterFrais', component: AjoutFicheFraisComponent }
+  { path: 'ajouterFrais', component: AjoutFicheFraisComponent },
+  { path: 'Listefichehorsforfaitfrais/:id', component: AjoutFicheFraisComponent }
+
 ];
 
 @NgModule({

@@ -20,7 +20,7 @@ export class FichefraisService {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache'
-    })
+    });
 
   }
 
