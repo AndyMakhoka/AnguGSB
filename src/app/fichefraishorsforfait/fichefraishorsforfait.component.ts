@@ -18,7 +18,7 @@ export class FichefraishorsforfaitComponent implements OnInit {
   //public mesFrais: Frais = [];
   public unFraisHF!: Fraisht;
   //private unFS: FichefraisService = new FichefraisService();
-  private  fraishfid: number = 0;
+  private  idfrais: number = 0;
   public titre: string = "Modification d'un frais hors forfait";
   private paramMap!: ParamMap;
   private error: string = '';
@@ -41,8 +41,8 @@ export class FichefraishorsforfaitComponent implements OnInit {
 
     if (this.activatedRoute.snapshot.paramMap.get('id')){
       // @ts-ignore
-      this.fraishfid = +this.activatedRoute.snapshot.paramMap.get('id');
-      this.getFicheFraisHF(this.fraishfid);
+      this.idfrais = +this.activatedRoute.snapshot.paramMap.get('id');
+      this.getFicheFraisHF(this.idfrais);
 
     }
 
@@ -86,7 +86,7 @@ export class FichefraishorsforfaitComponent implements OnInit {
       alert("Erreur survenue " + this.error);
     else
       alert("Modifiaction réussie !");
-    this.unRouteur.navigate(['/Listefichehorsforfaitfrais/' + this.fraishfid]);
+    this.unRouteur.navigate(['/Listefichehorsforfaitfrais/' + this.idfrais]);
   }
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Frais} from "../../metier/frais";
 import {FichefraisService} from "../FichefraisService/fichefrais.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {HttpHeaders} from "@angular/common/http";
 import {Fraisht} from "../../metier/fraisht";
 import {FichefraishorsforfaitService} from "../FicheFraisHorsForfaitService/fichefraishorsforfait.service";
@@ -18,10 +18,11 @@ export class ListefraishorsforfaitComponent implements OnInit {
   private id: number = 0;
   public titre: string = "";
   private unFrais: Frais = new Frais();
+  public idfrais: number = 0;
   public montantTotal!: number;
   public idFrais!: number;
 
-  constructor( private unFHTS: FichefraishorsforfaitService, private unRouteur: Router) {
+  constructor( private unFHTS: FichefraishorsforfaitService, private unRouteur: Router, private activatedRoute: ActivatedRoute) {
     let httpFeaders = new HttpHeaders({
       'Content-Type' : 'application/json',
       'Cache-Control' : 'no-cache'
@@ -34,7 +35,14 @@ export class ListefraishorsforfaitComponent implements OnInit {
       this.id = Number.parseInt(item);
       this.titre = "Liste des frais du visiteur " + this.id;
 
-      this.getFicheFraisHTListe(Number.parseInt(item));
+      if (this.activatedRoute.snapshot.paramMap.get('id')){
+        // @ts-ignore
+        this.idfrais = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+        this.getFicheFraisHTListe(this.idfrais);
+      }
+      //this.unFraisHF.lib_fraishorsforfait = "Frais hors forfait"
+      //this.unFraisHF.id_frais = this.idfrais;
+
     }
   }
 
@@ -74,7 +82,7 @@ export class ListefraishorsforfaitComponent implements OnInit {
 
   }
   ajouterFraisHorsForfait(){
-    this.unRouteur.navigate(['/ajouterFraisHF/' + this.unFrais.id_frais]);
+    this.unRouteur.navigate(['/ajouterFraisHF/' + this.idfrais]);
 
   }
 

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
-import {Frais} from "../../metier/frais";
 import {Fraisht} from "../../metier/fraisht";
 
 @Injectable({
@@ -34,9 +33,9 @@ export class FichefraishorsforfaitService {
   }
 
 
-  addFraisHF(unFraisht: Fraisht) : Observable<any> {
+  addFraisHF(unFraisHF: Fraisht) : Observable<any> {
     this.ClientUrl = environment.ENDPOINT + 'api/frais/addFraisHorsForfait';
-    return this.httpClient.post(this.ClientUrl, JSON.stringify(unFraisht));
+    return this.httpClient.post(this.ClientUrl, JSON.stringify(unFraisHF));
   }
 
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Fraisht} from "../../metier/fraisht";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {Etat} from "../../metier/etat";
 import {FichefraishorsforfaitService} from "../FicheFraisHorsForfaitService/fichefraishorsforfait.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
@@ -13,9 +12,9 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class AjoutfichefraishtComponent implements OnInit {
 
   //public mesFrais: Frais = [];
-  public unFraisHF!: Fraisht;
+  public unFraisHF: Fraisht = new Fraisht();
   //private unFS: FichefraisService = new FichefraisService();
-  private  fraishfid: number = 0;
+  private  fraisid: number = 0;
   public titre: string = "Ajout d'un frais hors forfait";
   private paramMap!: ParamMap;
   private error: string = '';
@@ -25,7 +24,7 @@ export class AjoutfichefraishtComponent implements OnInit {
 
 
   constructor(private unFHF: FichefraishorsforfaitService, private activatedRoute: ActivatedRoute,
-              private unRouteur: Router) {
+              private unRouteur: Router, private httpClient: HttpClient) {
     let httpFeaders = new HttpHeaders({
       'Content-type': 'application/json',
       'Cache-Control': 'no-cache'
@@ -36,8 +35,9 @@ export class AjoutfichefraishtComponent implements OnInit {
 
     if (this.activatedRoute.snapshot.paramMap.get('id')){
       // @ts-ignore
-      this.fraishfid = +this.activatedRoute.snapshot.paramMap.get('id');
-
+      this.fraisid = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+      //this.unFraisHF.lib_fraishorsforfait = "Frais hors forfait"
+      this.unFraisHF.id_frais = this.fraisid;
 
     }
 
@@ -53,12 +53,14 @@ export class AjoutfichefraishtComponent implements OnInit {
 
 
   annuler(): void {
-    this.unRouteur.navigate(['/accueil/']);
+    this.unRouteur.navigate(['/accueil']);
   }
 
   valider() : void {
+    this.unFraisHF.id_frais =  this.fraisid;
     this.unFHF.addFraisHF(this.unFraisHF).subscribe(
-      ()=> {
+      (unFraisHF)=> {
+        alert(unFraisHF);
       },
       (error) => {
         this.error = error.messages;
@@ -67,9 +69,13 @@ export class AjoutfichefraishtComponent implements OnInit {
 
     if (this.error != '')
       alert("Erreur survenue " + this.error);
+
     else
       alert("Ajout réussie !");
-    this.unRouteur.navigate(['/acceuil']);
+    this.unRouteur.navigate(['/Listefichehorsforfaitfrais/' + this.fraisid]);
+
+
+
   }
 
 
