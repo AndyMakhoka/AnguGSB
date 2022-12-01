@@ -25,7 +25,6 @@ export class FichefraisComponent implements OnInit {
   private paramMap!: ParamMap;
   private error: string = '';
 
-  private unEtat: Etat = new Etat;
   public mesEtats!: Etat[];
 
   private ClientUrl: string = "";
@@ -45,8 +44,9 @@ export class FichefraisComponent implements OnInit {
       // @ts-ignore
       this.fraisId = +this.activatedRoute.snapshot.paramMap.get('id');
       this.getFicheFrais(this.fraisId);
-      this.getEtat();
+
     }
+    this.getEtat();
 
 
 
@@ -105,8 +105,8 @@ export class FichefraisComponent implements OnInit {
       alert("Modifiaction réussie !");
     this.unRouteur.navigate(['/Listefichefrais']);
   }
-  fraishorsforfait() : void {
-   // this.unRouteur.navigate(['/accueil']);
+  fraishorsforfait(id: number) : void {
+   this.unRouteur.navigate(['/Listefichehorsforfaitfrais/' + id]);
   }
 
 

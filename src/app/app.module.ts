@@ -13,12 +13,15 @@ import { AppComponent } from './app.component';
 import { ListefichefraisComponent } from './listefichefrais/listefichefrais.component';
 //import { FichefraisComponent } from './fichefrais/fichefrais.component';
 import {FichefraisComponent} from "./fichefrais/fichefrais.component";
-import {FichefraisService} from "./FichefraisService/fichefrais.service";
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConnexionComponent } from './connexion/connexion.component';
 import {GlobalComponentComponent} from "./global/global-component.component.";
 import { AjoutFicheFraisComponent } from './ajout-fiche-frais/ajout-fiche-frais.component';
-
+import { FichefraishorsforfaitComponent } from './fichefraishorsforfait/fichefraishorsforfait.component';
+import { ListefraishorsforfaitComponent } from './listefraishorsforfait/listefraishorsforfait.component';
+import {FichefraishorsforfaitService} from "./FicheFraisHorsForfaitService/fichefraishorsforfait.service";
+import {FichefraisService} from "./FichefraisService/fichefrais.service";
+import { AjoutfichefraishtComponent } from './ajoutfichefraisht/ajoutfichefraisht.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { AjoutFicheFraisComponent } from './ajout-fiche-frais/ajout-fiche-frais.
     ConnexionComponent,
     GlobalComponentComponent,
     AjoutFicheFraisComponent,
+    FichefraishorsforfaitComponent,
+    ListefraishorsforfaitComponent,
+    AjoutfichefraishtComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,7 @@ import { AjoutFicheFraisComponent } from './ajout-fiche-frais/ajout-fiche-frais.
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [FichefraisService, HttpClient, FormsModule, GlobalComponentComponent],
+  providers: [FichefraisService, HttpClient, FormsModule, GlobalComponentComponent, FichefraishorsforfaitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

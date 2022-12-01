@@ -73,7 +73,7 @@ export class AjoutFicheFraisComponent implements OnInit {
     else
       alert("Ajout réussie !");
     //this.unRouteur.navigate(['/accueil']);
-    this.unRouteur.navigate(['/Listefichefrais']);
+    this.unRouteur.navigate(['/Listefichefrais/' + this.fraisId]);
   }
   fraishorsforfait() : void {
     // this.unRouteur.navigate(['/accueil']);

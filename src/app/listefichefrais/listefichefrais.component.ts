@@ -26,7 +26,7 @@ export class ListefichefraisComponent implements OnInit {
   private error: string = "";
   private id: number = 0;
   private _titre: string = "";
-  private unFrais: Frais = new Frais();
+  private unFrais!: Frais;
 
   constructor( private unFS: FichefraisService, private unRouteur: Router) {
     let httpFeaders = new HttpHeaders({
@@ -69,13 +69,14 @@ export class ListefichefraisComponent implements OnInit {
     this.unFS.deleteFrais(unFrais).subscribe(
       () => {
         //this.unRouteur.navigate(['/Listefichefrais']);
+        alert("Suppression réussie !");
       },
       (error) => {
         this.error = error.messages;
+        alert(error.messages);
 
       }
     );
-    alert("Suppression réussie !");
     this.unRouteur.navigate(['/accueil']);
     this.unRouteur.navigate(['/Listefichefrais']);
     //this.unRouteur.navigateByUrl("/reload");
