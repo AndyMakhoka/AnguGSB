@@ -59,8 +59,8 @@ export class AjoutfichefraishtComponent implements OnInit {
   valider() : void {
     this.unFraisHF.id_frais =  this.fraisid;
     this.unFHF.addFraisHF(this.unFraisHF).subscribe(
-      (unFraisHF)=> {
-        alert(unFraisHF);
+      ()=> {
+
       },
       (error) => {
         this.error = error.messages;
@@ -71,10 +71,7 @@ export class AjoutfichefraishtComponent implements OnInit {
       alert("Erreur survenue " + this.error);
 
     else
-      alert("Ajout réussie !");
     this.unRouteur.navigate(['/Listefichehorsforfaitfrais/' + this.fraisid]);
-
-
 
   }
 

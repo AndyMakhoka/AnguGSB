@@ -19,7 +19,7 @@ export class ListefraishorsforfaitComponent implements OnInit {
   public titre: string = "";
   private unFrais: Frais = new Frais();
   public idfrais: number = 0;
-  public montantTotal!: number;
+  public montantTotal: number = 0;
   public idFrais!: number;
 
   constructor( private unFHTS: FichefraishorsforfaitService, private unRouteur: Router, private activatedRoute: ActivatedRoute) {
@@ -64,9 +64,12 @@ export class ListefraishorsforfaitComponent implements OnInit {
 
   calculMontant(): void {
 
+    let unFHF!: Fraisht;
+
     for (let i = 0; i < this.mesFraisHorsForfait.length; i++){
-      let unFHF: Fraisht = this.mesFraisHorsForfait[i];
+      unFHF = this.mesFraisHorsForfait[i];
       this.montantTotal = this.montantTotal + (unFHF.montant_fraishorsforfait * 1.0);
+
     }
   }
 
@@ -74,12 +77,24 @@ export class ListefraishorsforfaitComponent implements OnInit {
 
 
   modifier(id: number): void{
-    this.unRouteur.navigate(['/modifierFrais/' + id]);
+    this.unRouteur.navigate(['/modifierFraisHF/' + id]);
   }
 
 
-  supprimer(id: number): void{
+  supprimer(unFHF: Fraisht): void{
+    //this.unRouteur.navigate(['/ajouterFraisHF/' + id]);
+    this.unFHTS.deleteFraisHF(unFHF).subscribe(
+      () => {
 
+        //this.idFrais = this.mesFraisHorsForfait[0].id_frais;
+
+      },
+      (error) => {
+        this.error = error.messages;
+      }
+    )
+    //this.unRouteur.navigate(['/Listefichehorsforfaitfrais/' + unFHF.id_frais]);
+    location.reload();
   }
   ajouterFraisHorsForfait(){
     this.unRouteur.navigate(['/ajouterFraisHF/' + this.idfrais]);

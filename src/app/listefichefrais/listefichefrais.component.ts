@@ -77,9 +77,9 @@ export class ListefichefraisComponent implements OnInit {
 
       }
     );
-    this.unRouteur.navigate(['/accueil']);
-    this.unRouteur.navigate(['/Listefichefrais']);
-    //this.unRouteur.navigateByUrl("/reload");
+    //this.unRouteur.navigate(['/accueil']);
+    //this.unRouteur.navigate(['/Listefichefrais']);
+    location.reload();
   }
 
 

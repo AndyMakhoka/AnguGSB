@@ -44,5 +44,11 @@ export class FichefraishorsforfaitService {
     return this.httpClient.post(this.ClientUrl, JSON.stringify(unFrais));
   }
 
+  deleteFraisHF(unFraisHF: Fraisht) : Observable<any> {
+    this.ClientUrl = environment.ENDPOINT + 'api/frais/deleteFicheFraisHF';
+    return this.httpClient.post(this.ClientUrl, JSON.stringify(unFraisHF));
+  }
+
+
 
 }

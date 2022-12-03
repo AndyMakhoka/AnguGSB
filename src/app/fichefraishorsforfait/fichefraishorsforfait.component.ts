@@ -75,7 +75,8 @@ export class FichefraishorsforfaitComponent implements OnInit {
 
   valider() : void {
     this.unFHF.updateFraisHF(this.unFraisHF).subscribe(
-      ()=> {;
+      ()=> {
+
       },
       (error) => {
         this.error = error.messages;
@@ -86,7 +87,7 @@ export class FichefraishorsforfaitComponent implements OnInit {
       alert("Erreur survenue " + this.error);
     else
       alert("Modifiaction réussie !");
-    this.unRouteur.navigate(['/Listefichehorsforfaitfrais/' + this.idfrais]);
+    this.unRouteur.navigate(['/Listefichehorsforfaitfrais/' + this.unFraisHF.id_frais]);
   }
 
 
