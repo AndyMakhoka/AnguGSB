@@ -5,6 +5,10 @@ import {FichefraisComponent} from "../fichefrais/fichefrais.component";
 import {Router} from "@angular/router";
 import {HttpHeaders} from "@angular/common/http";
 import {compareNumbers} from "@angular/compiler-cli/src/version_helpers";
+import {ListefraishorsforfaitComponent} from "../listefraishorsforfait/listefraishorsforfait.component";
+import {FichefraishorsforfaitService} from "../FicheFraisHorsForfaitService/fichefraishorsforfait.service";
+import {Fraisht} from "../../metier/fraisht";
+import * as stream from "stream";
 
 
 @Component({
@@ -27,8 +31,12 @@ export class ListefichefraisComponent implements OnInit {
   private id: number = 0;
   private _titre: string = "";
   private unFrais!: Frais;
+  private mesFraisHorsForfait!: Fraisht[];
+  private unFHF!: Fraisht;
 
-  constructor( private unFS: FichefraisService, private unRouteur: Router) {
+  public sousTitre: string = "";
+
+  constructor( private unFS: FichefraisService, private unRouteur: Router, private FHFS: FichefraishorsforfaitService) {
     let httpFeaders = new HttpHeaders({
       'Content-Type' : 'application/json',
       'Cache-Control' : 'no-cache'
@@ -66,21 +74,71 @@ export class ListefichefraisComponent implements OnInit {
 
   supprimer(unFrais: Frais): void{
     //this.unRouteur.navigate(['/supprimer/' + id]);
-    this.unFS.deleteFrais(unFrais).subscribe(
-      () => {
-        //this.unRouteur.navigate(['/Listefichefrais']);
-        alert("Suppression réussie !");
-      },
-      (error) => {
-        this.error = error.messages;
-        alert(error.messages);
 
-      }
-    );
+    this.FHFS.getFicheFraisHorsForfaitListe(unFrais.id_frais).subscribe(
+        (mesFHF) => {
+          //this.mesFraisHorsForfait = mesFHF;
+          let len = mesFHF.length;
+          for (let i = 0; i < len ; i++){
+            this.unFHF = mesFHF[i];
+            this.FHFS.deleteFraisHF(this.unFHF).subscribe(
+              () => {
+                this.sousTitre = "FraisHF " + this.unFHF.id_fraishorsforfait + "supprimé";
+                //alert("FraisHF " + this.unFHF.id_fraishorsforfait + "supprimé");
+                //this.idFrais = this.mesFraisHorsForfait[0].id_frais;
+                location.reload();
+
+              },
+              (error) => {
+                this.error = error.messages;
+                alert(error.messages);
+
+
+              }
+            )
+          }
+          //location.reload();
+
+          this.unFS.deleteFrais(unFrais).subscribe(
+            () => {
+              //this.unRouteur.navigate(['/Listefichefrais']);
+              //alert("Suppression réussie !");
+              location.reload();
+
+            },
+            (error) => {
+              this.error = error.messages;
+              alert(error.messages);
+
+            }
+
+
+          )
+          //location.reload();
+
+
+        },
+        (error) => {
+          this.error = error.messages;
+          alert(error.messages);
+
+
+        }
+      )
+
+
+
+
+
+
+
+
+      //location.reload();
+
+    }
+
+
     //this.unRouteur.navigate(['/accueil']);
     //this.unRouteur.navigate(['/Listefichefrais']);
-    location.reload();
-  }
-
 
 }
