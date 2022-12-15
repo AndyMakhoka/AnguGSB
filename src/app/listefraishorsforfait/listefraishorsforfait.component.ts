@@ -17,12 +17,11 @@ export class ListefraishorsforfaitComponent implements OnInit {
   private error: string = "";
   private id: number = 0;
   public titre: string = "";
-  private unFrais: Frais = new Frais();
+  public unFrais: Frais = new Frais();
   public idfrais: number = 0;
-  public montantTotal: number = 0;
-  public idFrais!: number;
+  public montantTotal: any = 0.00;
 
-  constructor( private unFHTS: FichefraishorsforfaitService, private unRouteur: Router, private activatedRoute: ActivatedRoute) {
+  constructor( private unFHTS: FichefraishorsforfaitService, private unRouteur: Router, private activatedRoute: ActivatedRoute, private unFS: FichefraisService) {
     let httpFeaders = new HttpHeaders({
       'Content-Type' : 'application/json',
       'Cache-Control' : 'no-cache'
@@ -39,6 +38,7 @@ export class ListefraishorsforfaitComponent implements OnInit {
         // @ts-ignore
         this.idfrais = Number.parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
         this.getFicheFraisHTListe(this.idfrais);
+
       }
       //this.unFraisHF.lib_fraishorsforfait = "Frais hors forfait"
       //this.unFraisHF.id_frais = this.idfrais;
@@ -103,6 +103,19 @@ export class ListefraishorsforfaitComponent implements OnInit {
 
   validerMontantFraisHorsForfait(){
 
+    this.unFrais.id_frais = this.idfrais;
+    this.unFrais.montantHF = this.montantTotal;
+
+    this.unFS.ValidateMontantFrais(this.unFrais).subscribe(
+      () => {
+        this.unRouteur.navigate(['/Listefichefrais']);
+      },
+      (error) => {
+        this.error = error.messages;
+        alert(this.unFrais.id_frais);
+        alert(this.unFrais.montantHF);
+      }
+    )
   }
 
 }

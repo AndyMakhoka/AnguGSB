@@ -4,6 +4,7 @@ import {Frais} from "../../metier/frais";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
+import {Fraisht} from "../../metier/fraisht";
 
 @Injectable()
 export class FichefraisService {
@@ -46,6 +47,11 @@ export class FichefraisService {
 
   deleteFrais(unFrais: Frais): Observable<any> {
     this.ClientUrl = environment.ENDPOINT + 'api/frais/deleteFicheFrais';
+    return this.httpClient.post(this.ClientUrl, JSON.stringify(unFrais));
+  }
+
+  ValidateMontantFrais(unFrais: Frais) : Observable<any> {
+    this.ClientUrl = environment.ENDPOINT + 'api/frais/validateFraisMontant';
     return this.httpClient.post(this.ClientUrl, JSON.stringify(unFrais));
   }
 

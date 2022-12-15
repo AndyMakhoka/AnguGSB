@@ -105,6 +105,7 @@ export class FichefraisComponent implements OnInit {
       alert("Modifiaction réussie !");
     this.unRouteur.navigate(['/Listefichefrais']);
   }
+
   fraishorsforfait(id: number) : void {
    this.unRouteur.navigate(['/Listefichehorsforfaitfrais/' + id]);
   }

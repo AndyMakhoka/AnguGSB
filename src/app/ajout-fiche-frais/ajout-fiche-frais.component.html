@@ -31,7 +31,7 @@
         <div class="form-group">
           <label class="col-md-3 col-sm-3 control-label">Montant Validé : </label>
           <div class="col-md-2 col-sm-2">
-            <input type="text" name="montantValide" [(ngModel)]="unFrais.montantvalide"  class="form-control"  required autofocus>
+            <input type="text" name="montantValide" [(ngModel)]="unFrais.montantvalide"  class="form-control"  required autofocus disabled>
           </div>
         </div>
       </div>
@@ -68,8 +68,7 @@
             <span class="glyphicon glyphicon-remove"></span> Annuler
           </button>
           <BR> <BR>
-          <button type="button" (click)="fraishorsforfait()" class="btn btn-default btn-primary">
-            <span class="glyphicon glyphicon-list"></span> Frais hors forfait</button>
+
         </div>
         &nbsp;  &nbsp;
 
